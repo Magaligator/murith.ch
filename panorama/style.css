@@ -1665,3 +1665,8 @@ html[data-theme="panorama"] .sos{border:1px solid var(--line);box-shadow:0 22px 
 @media(max-width:640px){.ws-mark{bottom:calc(88px + env(safe-area-inset-bottom))}.to-top{bottom:calc(128px + env(safe-area-inset-bottom))!important}}
 @media print{.ws-mark{display:none!important}}
 .to-top{margin-bottom:22px}.badge-rot{margin-bottom:22px}.fcall{margin-bottom:22px}
+
+/* Logo du pied de page = même logo, même taille que dans l'en-tête */
+html[data-theme="panorama"] .site-footer .foot-brand img{height:44px;width:auto;max-width:none}
+@media(max-width:560px){html[data-theme="panorama"] .site-footer .foot-brand img{height:36px}}
+@media(min-width:1201px){html[data-theme="panorama"] .foot-main{grid-template-columns:minmax(260px,1.45fr) 1fr 1fr 1fr 1.2fr}}
