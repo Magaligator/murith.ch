@@ -1055,3 +1055,35 @@
     side.appendChild(c);
   }
 })();
+
+/* ===== V60 — Panorama : le titre de l'accueil suit la photo du diaporama ===== */
+(function () {
+  'use strict';
+  var d = document, hero = d.querySelector('.hero-pan'); if (!hero) return;
+  var h1 = hero.querySelector('h1'), ims = [].slice.call(hero.querySelectorAll('img.as')), btn = hero.querySelector('.btns .btn-primary'), eb = h1 && h1.querySelector('.eyebrow');
+  if (!h1 || !eb || !btn || ims.length < 4) return;
+  var lang = (d.documentElement.lang || 'fr').slice(0, 2);
+  var D = {
+    fr: [['Des cérémonies dans le respect des traditions', 'La famille est au centre de toutes les décisions', 'Découvrir nos obsèques'], ['Des salons ouverts de jour comme de nuit', 'Un lieu paisible et respectueux de votre culture, religieuse ou laïque', 'Visiter nos salons'], ['Des fleurs pour un dernier hommage', 'Choisissez ou créez les arrangements de fleurs selon votre convenance', 'Composer mes arrangements']],
+    en: [['Ceremonies that respect your traditions', 'The family is at the heart of every decision', 'Discover our funeral services'], ['Funeral rooms open day and night', 'A peaceful place that respects your culture, religious or secular', 'Visit our funeral rooms'], ['Flowers for a last tribute', 'Choose or create the flower arrangements as you wish', 'Compose my arrangements']],
+    de: [['Feiern im Respekt Ihrer Traditionen', 'Die Familie steht im Mittelpunkt aller Entscheidungen', 'Unsere Bestattungen entdecken'], ['Abschiedsräume bei Tag und Nacht geöffnet', 'Ein ruhiger Ort, der Ihre Kultur respektiert, religiös oder weltlich', 'Unsere Abschiedsräume besuchen'], ['Blumen für eine letzte Würdigung', 'Wählen oder gestalten Sie die Blumenarrangements nach Ihren Wünschen', 'Meine Gestecke zusammenstellen']],
+    es: [['Ceremonias que respetan sus tradiciones', 'La familia está en el centro de todas las decisiones', 'Descubrir nuestros funerales'], ['Salones abiertos de día y de noche', 'Un lugar sereno que respeta su cultura, religiosa o laica', 'Visitar nuestros salones'], ['Flores para un último homenaje', 'Elija o cree los arreglos florales a su gusto', 'Componer mis arreglos']],
+    pt: [['Cerimónias no respeito das suas tradições', 'A família está no centro de todas as decisões', 'Descobrir os nossos funerais'], ['Salas abertas de dia e de noite', 'Um lugar sereno que respeita a sua cultura, religiosa ou laica', 'Visitar as nossas salas'], ['Flores para uma última homenagem', 'Escolha ou crie os arranjos de flores à sua medida', 'Compor os meus arranjos']]
+  };
+  var T = D[lang] || D.fr, HREF = ['obseques.html', 'salons.html', 'fleurs.html'];
+  var main = d.createElement('span'); main.className = 'h1-main'; main.setAttribute('aria-live', 'polite');
+  while (eb.nextSibling) main.appendChild(eb.nextSibling); h1.appendChild(main);
+  var first = main.innerHTML, firstHref = btn.getAttribute('href'), txt = btn.firstChild, firstLabel = txt.textContent, cur = 0, tm = null;
+  function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
+  function apply(i) {
+    main.classList.add('out'); btn.classList.add('out');
+    clearTimeout(tm); tm = setTimeout(function () {
+      if (i === 0) { main.innerHTML = first; btn.setAttribute('href', firstHref); txt.textContent = firstLabel; }
+      else { var t = T[i - 1]; main.innerHTML = esc(t[0]) + ' <em>' + esc(t[1]) + '</em>'; btn.setAttribute('href', HREF[i - 1]); txt.textContent = t[2]; }
+      main.classList.remove('out'); btn.classList.remove('out');
+    }, 380);
+  }
+  function idx() { for (var i = 0; i < ims.length; i++) if (ims[i].classList.contains('on')) return i; return 0; }
+  var mo = new MutationObserver(function () { var i = idx(); if (i !== cur) { cur = i; apply(i); } });
+  ims.forEach(function (im) { mo.observe(im, { attributes: true, attributeFilter: ['class'] }); });
+})();

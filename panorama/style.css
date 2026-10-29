@@ -1670,3 +1670,10 @@ html[data-theme="panorama"] .sos{border:1px solid var(--line);box-shadow:0 22px 
 html[data-theme="panorama"] .site-footer .foot-brand img{height:44px;width:auto;max-width:none}
 @media(max-width:560px){html[data-theme="panorama"] .site-footer .foot-brand img{height:36px}}
 @media(min-width:1201px){html[data-theme="panorama"] .foot-main{grid-template-columns:minmax(260px,1.45fr) 1fr 1fr 1fr 1.2fr}}
+
+/* ===== V60 — Panorama : titre synchronisé avec la photo ===== */
+.hero-pan h1 .h1-main{display:block;transition:opacity .38s ease,transform .5s var(--ease)}
+.hero-pan h1 .h1-main.out{opacity:0;transform:translateY(12px)}
+.hero-pan .btns .btn-primary{transition:opacity .38s ease,transform .4s var(--ease),background .3s}
+.hero-pan .btns .btn-primary.out{opacity:0}
+@media(prefers-reduced-motion:reduce){.hero-pan h1 .h1-main,.hero-pan .btns .btn-primary{transition:none}}
