@@ -1871,3 +1871,96 @@ html[data-theme="panorama"] .site-footer .foot-brand img{height:44px;width:auto;
   html[data-theme] .sos strong{font-size:.95rem}
 }
 @media(max-width:700px){html[data-theme]{--gut:18px}}
+
+/* ===== V62 — Mobile : textes plus petits, tout centré, photos et carrousels proportionnés, accueil réorganisé ===== */
+@media(max-width:700px){
+  /* 1) polices plus petites */
+  html[data-theme]{--fs-h1:1.5rem;--fs-h2:1.25rem;--fs-h3:1.02rem;--fs-display:1.3rem;--fs-l:.95rem;--fs-m:.9rem;--fs-s:.8rem;--fs-xs:.66rem}
+  html[data-theme] body{font-size:14.5px;line-height:1.6}
+  html[data-theme] main p,html[data-theme] main li,html[data-theme] main td,html[data-theme] .card p,html[data-theme] .site-footer li{font-size:.9rem;line-height:1.6}
+  html[data-theme] .lead,html[data-theme] .phead .lead{font-size:.95rem;line-height:1.6}
+  html[data-theme] h1,html[data-theme] .hero-a h1,html[data-theme] .phead h1,html[data-theme] .hero-pan h1,html[data-theme] main:has(.post-body) .phead h1{font-size:1.5rem;line-height:1.2;letter-spacing:0}
+  html[data-theme] h2,html[data-theme] .sec-head h2,html[data-theme] .intro-grid h2,html[data-theme] .split h2,html[data-theme] .band h2,html[data-theme] .nband h2,html[data-theme] .cta-card h2{font-size:1.25rem;line-height:1.25}
+  html[data-theme] h3,html[data-theme] .card h3,html[data-theme] .pcard h3,html[data-theme] .step h3,html[data-theme] .post h3,html[data-theme] .pillar h3{font-size:1.02rem;line-height:1.3}
+  html[data-theme] .hero-a h1 em,html[data-theme] .hero-pan h1 em{font-size:.9rem;line-height:1.5}
+  html[data-theme] .eyebrow,html[data-theme] .xp-b .eyebrow{font-size:.64rem;letter-spacing:.2em}
+  html[data-theme] .btn{font-size:.85rem;min-height:48px;padding:0 20px}
+  html[data-theme] .link-arrow{font-size:.85rem}
+  html[data-theme] .stmt-t{font-size:1.3rem}
+  html[data-theme] .stat b{font-size:1.45rem}
+  html[data-theme] .quote{font-size:.98rem}
+  html[data-theme] .rv-t{font-size:.88rem}
+  html[data-theme] .callbar a{font-size:.85rem}
+  html[data-theme] .mnav a.l{font-size:1.1rem}
+  html[data-theme] .mnav .fh,html[data-theme] .mnav h4{font-size:.64rem}
+  html[data-theme] .field input,html[data-theme] .field textarea,html[data-theme] .field select{font-size:16px}
+  html[data-theme] .ps-t{font-size:1.1rem}
+  html[data-theme] .m-more{font-size:.85rem}
+
+  /* 2) tout est centré */
+  html[data-theme] .sec-head,html[data-theme] .hero-copy,html[data-theme] .pan-txt,html[data-theme] .phead-text,html[data-theme] .intro-grid>div,html[data-theme] .intro-w,html[data-theme] .stmt .container,html[data-theme] .nband-in,html[data-theme] .band-in,html[data-theme] .cta-card,html[data-theme] .gr-head,html[data-theme] .hours .card,html[data-theme] .pcard,html[data-theme] .fs-body,html[data-theme] .step,html[data-theme] .fact,html[data-theme] .rv-card,html[data-theme] .foot-brand,html[data-theme] .foot-contact,html[data-theme] .contact-video,html[data-theme] .split>div,html[data-theme] .flo-guide{text-align:center}
+  html[data-theme] .sec-head,html[data-theme] .phead-text{margin-inline:auto}
+  html[data-theme] .eyebrow{display:flex;justify-content:center;text-align:center}
+  html[data-theme] .eyebrow::before,html[data-theme] .eyebrow::after{display:none}
+  html[data-theme] .btns{justify-content:center}
+  html[data-theme] .gr-head{align-items:center}
+  html[data-theme] .gr-score{margin-inline:auto}
+  html[data-theme] .rv-by{justify-content:center}
+  html[data-theme] .quote{border:0;padding:0;margin-inline:auto;text-align:center}
+  html[data-theme] .sign{text-align:center}
+  html[data-theme] .sos{flex-direction:column;align-items:center;text-align:center;gap:10px}
+  html[data-theme] .pan-help .ph{text-align:left}
+  html[data-theme] .pan-dots{justify-content:center}
+  html[data-theme] .foot-brand{display:flex;flex-direction:column;align-items:center}
+  html[data-theme] .foot-brand .tag-l{max-width:30ch}
+  html[data-theme] .social,html[data-theme] .tb-social{justify-content:center}
+  html[data-theme] .foot-contact .link-arrow,html[data-theme] .hours .card .btns{margin-inline:auto}
+  html[data-theme] .info-wide .iw-left{text-align:center;align-items:center}
+  html[data-theme] .perm{justify-items:center}
+  html[data-theme] .site-footer .foot-bot{text-align:center}
+  /* piliers : un carrousel centré, une carte à la fois */
+  html[data-theme] .pillars{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:-18px;padding:4px 18px 8px;scrollbar-width:none}
+  html[data-theme] .pillars::-webkit-scrollbar{display:none}
+  html[data-theme] .pillar{display:block;flex:0 0 82%;scroll-snap-align:center;text-align:center;padding:24px 18px;border:1px solid var(--line);border-radius:22px;background:var(--surface);border-bottom:1px solid var(--line)}
+  html[data-theme] .pillar .ico-ring{margin:0 auto 12px}
+  html[data-theme] .pillar p{margin:0}
+
+  /* 3) carrousels et photos proportionnés */
+  html[data-theme] .slider{--per:1.18;--gap:12px}
+  html[data-theme] .s-track{align-items:stretch;padding-inline:2px}
+  html[data-theme] .s-item>*{height:100%}
+  html[data-theme] .s-item .card,html[data-theme] .s-item .post,html[data-theme] .s-item .fslide{display:flex;flex-direction:column;height:100%;border-radius:22px}
+  html[data-theme] .fslide{grid-template-columns:1fr;gap:0;background:var(--surface);border:1px solid var(--line);overflow:hidden}
+  html[data-theme] .fs-media{aspect-ratio:4/3;max-width:none;width:100%;border-radius:0!important;order:0}
+  html[data-theme] .fs-media img{width:100%;height:100%;object-fit:cover}
+  html[data-theme] .fslide .fs-body{padding:18px 16px 20px}
+  html[data-theme] .fslide .fs-body .eyebrow{margin-bottom:.4rem}
+  html[data-theme] .post-img{aspect-ratio:4/3}
+  html[data-theme] .post-img img,html[data-theme] .shot img,html[data-theme] figure.photo img{width:100%;height:100%;object-fit:cover}
+  html[data-theme] figure.photo{aspect-ratio:4/3;border-radius:20px;overflow:hidden}
+  html[data-theme] figure.photo img{aspect-ratio:auto!important}
+  html[data-theme] .c3d-stage{height:min(112vw,440px)}
+  html[data-theme] .c3d-card{width:78vw;margin-left:-39vw}
+  html[data-theme] .c3d-body{padding:18px}
+  html[data-theme] .ntile{aspect-ratio:4/5;flex-basis:74%}
+  html[data-theme] .cyl{height:min(78vw,320px)}
+  html[data-theme] .coffin .ph img,html[data-theme] .shot.sq img{aspect-ratio:1;object-fit:cover}
+  html[data-theme] .s-ctrl{justify-content:center}
+
+  /* 4) accueil réorganisé : la photo d'abord, puis le titre, les boutons et l'aide */
+  html[data-theme] .hero-a .hero-grid{display:flex;flex-direction:column;align-items:center;gap:18px}
+  html[data-theme] .hero-a .hero-media{order:-1;width:min(72%,280px);margin:0 auto}
+  html[data-theme] .hero-a .hero-media .arch .a-in{aspect-ratio:4/5}
+  html[data-theme] .hero-a .hero-copy{width:100%}
+  html[data-theme] .hero-a .eyebrow{margin-bottom:.6rem}
+  html[data-theme] .hero-a h1{margin-bottom:.3em}
+  html[data-theme] .hero-a .btns{margin-top:1.1rem}
+  html[data-theme] .hero-a .sos{margin-top:16px}
+  html[data-theme] .hero-a .sos .ico-box{display:none}
+  html[data-theme] .hero-a,html[data-theme="fonce"] .hero-a{padding-block:20px 30px}
+  html[data-theme="panorama"] .hero-pan .pan-bg{height:clamp(280px,84vw,340px);border-radius:0 0 28px 28px;overflow:hidden}
+  html[data-theme="panorama"] .hero-pan .pan-shade{height:clamp(280px,84vw,340px);border-radius:0 0 28px 28px}
+  html[data-theme="panorama"] .hero-pan .pan-copy{padding:20px 0 26px}
+  html[data-theme="panorama"] .hero-pan .pan-dots{margin-top:12px}
+  html[data-theme="panorama"] .hero-pan h1 .eyebrow{justify-content:center}
+}
