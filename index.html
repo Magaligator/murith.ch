@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A. Murith SA — Maquettes du nouveau site</title>
+<meta name="description" content="Trois maquettes du nouveau site de A. Murith SA, pompes funèbres à Genève depuis 1888 : Aube, Panorama et Nuit.">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<style>
+@font-face{font-family:'Playfair Display';font-style:normal;font-weight:300 700;font-display:swap;src:url(fonts/PlayfairDisplay-normal.woff2) format('woff2')}
+@font-face{font-family:'Playfair Display';font-style:italic;font-weight:300 700;font-display:swap;src:url(fonts/PlayfairDisplay-italic.woff2) format('woff2')}
+@font-face{font-family:'Poppins';font-weight:300;font-display:swap;src:url(fonts/Poppins-300.woff2) format('woff2')}
+@font-face{font-family:'Poppins';font-weight:400;font-display:swap;src:url(fonts/Poppins-400.woff2) format('woff2')}
+@font-face{font-family:'Poppins';font-weight:500;font-display:swap;src:url(fonts/Poppins-500.woff2) format('woff2')}
+@font-face{font-family:'Poppins';font-weight:600;font-display:swap;src:url(fonts/Poppins-600.woff2) format('woff2')}
+@font-face{font-family:'Inter';font-weight:300 700;font-display:swap;src:url(fonts/Inter-normal.woff2) format('woff2')}
+:root{--navy:#193554;--deep:#142B46;--gold:#84683A;--gold-s:#C9B285;--soft:#44566C;--line:#E3DDD3;--ease:cubic-bezier(.22,.8,.24,1)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:'Poppins',system-ui,sans-serif;line-height:1.7;color:var(--navy);background:#fff;-webkit-font-smoothing:antialiased}
+a{color:inherit}img{max-width:100%;display:block}
+h1,h2,h3{font-family:'Playfair Display',Georgia,serif;font-weight:400;line-height:1.15;margin:0 0 .4em}
+.wrap{width:min(100% - 48px,1360px);margin-inline:auto}
+.eyebrow{display:inline-flex;align-items:center;gap:.9em;font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;font-weight:600;color:var(--gold);margin:0 0 1rem}.eyebrow::before{content:"";width:32px;height:1px;background:currentColor}
+header.top{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid #BBCFE4}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;min-height:68px;gap:16px}header.top img{height:38px;width:auto}
+header.top a.t{font-size:.86rem;font-weight:500;text-decoration:none;padding:10px 16px;border-radius:999px;transition:background .25s}header.top a.t:hover{background:#EEF3FA}
+.hero{padding-block:clamp(40px,5vw,72px) clamp(24px,3vw,40px);text-align:center}
+.hero h1{font-size:clamp(2rem,4vw,3.2rem)}.hero p.lead{max-width:56ch;margin:0 auto;color:var(--soft);font-weight:300;font-size:1.1rem}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2.2vw,30px);padding-bottom:clamp(48px,6vw,88px)}
+a.card{display:flex;flex-direction:column;border-radius:28px;overflow:hidden;background:#fff;border:1px solid var(--line);text-decoration:none;box-shadow:0 30px 60px -44px rgba(25,53,84,.45);transition:transform .6s var(--ease),box-shadow .6s,border-color .3s}
+a.card:hover,a.card:focus-visible{transform:translateY(-8px);box-shadow:0 50px 80px -40px rgba(25,53,84,.55);border-color:var(--gold-s);outline:none}
+.shot{position:relative;aspect-ratio:4/3;overflow:hidden;background:#E4EAF4;border-bottom:1px solid var(--line)}
+.shot iframe{position:absolute;left:0;top:0;width:1440px;height:1080px;border:0;transform-origin:0 0;pointer-events:none}
+.card .txt{padding:clamp(20px,2.4vw,30px);display:flex;flex-direction:column;gap:6px;flex:1}
+.card .n{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600;margin:0}
+.card h2{font-size:clamp(1.8rem,2.6vw,2.3rem);margin:0}.card p.d{margin:0;color:var(--soft);font-size:.95rem}
+.card .go{margin-top:auto;padding-top:14px;display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:.92rem}
+.card .go i{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--navy);color:#fff;font-style:normal;transition:transform .5s var(--ease)}.card:hover .go i{transform:translateX(6px)}
+.card.dk .txt{background:#0B1120;color:#EDF3FF}.card.dk{border-color:#16264f}.card.dk h2{color:#fff}.card.dk p.d{color:#B9C7E6}.card.dk .n{color:#A9BCE4}.card.dk .go i{background:#fff;color:#0B1120}
+@media(max-width:1000px){.cards{grid-template-columns:1fr;max-width:620px;margin-inline:auto}}
+/* identité en bref */
+.brief{background:#FAF8F5;border-top:1px solid var(--line);padding-block:clamp(36px,4.6vw,60px)}
+.brief .wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(24px,5vw,72px);align-items:center}
+.brief img.lg{height:46px;width:auto;margin-bottom:14px}.brief p{margin:0;color:var(--soft);font-size:.95rem;max-width:56ch}
+.sws{display:flex;gap:10px;flex-wrap:wrap;padding-bottom:6px}.sw{position:relative;width:64px;height:64px;border-radius:50%;border:1px solid rgba(0,0,0,.1);cursor:pointer;padding:0;transition:transform .4s var(--ease)}.sw:hover{transform:translateY(-4px) scale(1.06)}
+.sw span{position:absolute;left:50%;top:calc(100% + 6px);transform:translateX(-50%);font-size:.66rem;letter-spacing:.06em;color:var(--soft);white-space:nowrap}
+.brief p.fonts{margin:44px 0 0;font-size:.85rem;color:var(--soft)}.fonts b{font-weight:500;color:var(--navy)}
+.brief p.hint{margin:8px 0 0;font-size:.72rem;color:var(--soft);opacity:.8}
+@media(max-width:800px){.brief .wrap{grid-template-columns:1fr}}
+.langs{text-align:center;margin:0;padding:22px 24px 0;font-size:.85rem;color:var(--soft)}
+/* crédit */
+.credit{display:flex;align-items:center;gap:18px;justify-content:center;flex-wrap:wrap;padding:30px 24px 56px;background:#fff;text-align:left}
+.credit img{width:46px;height:46px}.credit-txt{display:grid;gap:2px;font-size:.9rem;color:var(--soft)}.credit-txt strong{color:var(--navy);font-weight:600}.credit-sep{margin:0 8px}
+.ws-mark{position:fixed;right:10px;bottom:8px;z-index:140;display:inline-flex;align-items:center;gap:7px;padding:5px 11px 5px 6px;border-radius:999px;background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 0 0 1px rgba(40,30,28,.08),0 6px 18px -10px rgba(0,0,0,.5);color:#2b2321;font:500 10.5px/1 Inter,system-ui,sans-serif;letter-spacing:.03em;text-decoration:none;opacity:.9;transition:opacity .3s,transform .4s}
+.ws-mark:hover,.ws-mark:focus-visible{opacity:1;transform:translateY(-2px)}.ws-mark img{width:18px;height:18px;display:block}.ws-mark b{font-weight:400;opacity:.7}
+@media(max-width:560px){.ws-mark b{display:none}}@media print{.ws-mark,header.top{display:none}}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .9s cubic-bezier(.445,.05,.55,.95),transform 1s cubic-bezier(.445,.05,.55,.95)}.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap"><a href="#top" aria-label="A. Murith SA"><img src="img/logo-marine.png" alt="A. Murith SA — Pompes funèbres depuis 1888"></a><a class="t" href="#identite">Identité en bref</a></div></header>
+<main id="top">
+<section class="hero"><div class="wrap rv"><p class="eyebrow">Nouveau site murith.ch</p><h1>Trois maquettes pour A. Murith SA</h1><p class="lead">Un même contenu, la même identité, trois partis pris. Cliquez sur une maquette pour parcourir le site complet.</p></div></section>
+<section><div class="wrap cards">
+  <a class="card rv" href="clair/index.html" target="_blank" rel="noopener"><div class="shot"><iframe src="clair/index.html" title="Aperçu de la maquette Aube" tabindex="-1" loading="lazy" onload="this.style.transform='scale('+this.parentNode.clientWidth/1440+')'"></iframe></div>
+    <div class="txt"><p class="n">Maquette 1</p><h2>Aube</h2><p class="d">Blanc, bleu marine et or. Arche animée, galerie des salons en cylindre 3D, formulaire interactif.</p><span class="go">Ouvrir la maquette <i>→</i></span></div></a>
+  <a class="card rv" href="panorama/index.html" target="_blank" rel="noopener" style="--d:.1s"><div class="shot"><iframe src="panorama/index.html" title="Aperçu de la maquette Panorama" tabindex="-1" loading="lazy" onload="this.style.transform='scale('+this.parentNode.clientWidth/1440+')'"></iframe></div>
+    <div class="txt"><p class="n">Maquette 2</p><h2>Panorama</h2><p class="d">Photo pleine largeur, carrousel 3D, frise de l'histoire, check-list des formalités, blog magazine.</p><span class="go">Ouvrir la maquette <i>→</i></span></div></a>
+  <a class="card dk rv" href="fonce/index.html" target="_blank" rel="noopener" style="--d:.2s"><div class="shot"><iframe src="fonce/index.html" title="Aperçu de la maquette Nuit" tabindex="-1" loading="lazy" onload="this.style.transform='scale('+this.parentNode.clientWidth/1440+')'"></iframe></div>
+    <div class="txt"><p class="n">Maquette 3</p><h2>Nuit</h2><p class="d">Fond bleu nuit, titres fins, menu déroulant avec aperçu photo, questionnaire de prévoyance.</p><span class="go">Ouvrir la maquette <i>→</i></span></div></a>
+</div></section>
+<p class="langs">Chaque maquette existe en français, anglais, allemand, espagnol et portugais.</p>
+
+<section class="brief" id="identite" style="margin-top:clamp(36px,5vw,60px)"><div class="wrap">
+  <div class="rv"><img class="lg" src="img/logo-marine.png" alt="A. Murith SA — Pompes funèbres depuis 1888"><p><b style="font-weight:600">Pompes funèbres à Genève depuis 1888.</b> Cinq générations accompagnent les familles avec respect, bienveillance et humanité : obsèques, salons et chapelle de la Cluse, prévoyance funéraire et transports internationaux, 24h/24 et 7j/7.</p></div>
+  <div class="rv"><div class="sws" id="sws">
+    <button class="sw" type="button" style="background:#193554" data-hex="#193554" aria-label="Bleu marine #193554"><span>#193554</span></button>
+    <button class="sw" type="button" style="background:#0B1120" data-hex="#0B1120" aria-label="Bleu nuit #0B1120"><span>#0B1120</span></button>
+    <button class="sw" type="button" style="background:#BBCFE4" data-hex="#BBCFE4" aria-label="Bleu ciel #BBCFE4"><span>#BBCFE4</span></button>
+    <button class="sw" type="button" style="background:#84683A" data-hex="#84683A" aria-label="Or profond #84683A"><span>#84683A</span></button>
+    <button class="sw" type="button" style="background:#C9B285" data-hex="#C9B285" aria-label="Or doux #C9B285"><span>#C9B285</span></button>
+    <button class="sw" type="button" style="background:#F8F5F1" data-hex="#F8F5F1" aria-label="Crème #F8F5F1"><span>#F8F5F1</span></button></div>
+    <p class="fonts"><b style="font-family:'Playfair Display',serif;font-size:1.05rem">Playfair Display</b> pour les titres · <b>Poppins</b> pour les textes · <b style="font-family:'Playfair Display',serif;font-style:italic">Cormorant Garamond</b> pour la version nuit</p>
+    <p class="hint">Cliquez sur une couleur pour copier sa valeur.</p></div>
+</div></section>
+</main>
+<footer class="credit">
+  <a href="https://www.websituation.ch" target="_blank" rel="noopener" aria-label="Websituation"><img src="img/websituation-cube.png" alt="Logo Websituation" width="46" height="46"></a>
+  <div class="credit-txt"><strong>Maquettes réalisées par Websituation</strong>
+    <span><a href="https://www.websituation.ch" target="_blank" rel="noopener">www.websituation.ch</a><span class="credit-sep">·</span><a href="mailto:contact@websituation.ch">contact@websituation.ch</a></span>
+    <span>© 2026 Websituation — tous droits réservés</span></div>
+</footer>
+<a class="ws-mark" href="https://www.websituation.ch" target="_blank" rel="noopener" aria-label="Made by Websituation, www.websituation.ch"><img src="img/websituation-cube.png" alt="" width="18" height="18"><span><b>Made by </b>© www.websituation.ch</span></a>
+<script>
+(function(){
+  var rv=[].slice.call(document.querySelectorAll('.rv'));
+  if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1});rv.forEach(function(el){io.observe(el)})}else rv.forEach(function(e){e.classList.add('in')});
+  [].forEach.call(document.querySelectorAll('.sw'),function(b){b.addEventListener('click',function(){var h=b.getAttribute('data-hex'),s=b.querySelector('span');if(navigator.clipboard)navigator.clipboard.writeText(h).catch(function(){});s.textContent='Copié';setTimeout(function(){s.textContent=h},1300)})});
+})();
+</script>
+</body>
+</html>
