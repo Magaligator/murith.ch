@@ -1964,3 +1964,18 @@ html[data-theme="panorama"] .site-footer .foot-brand img{height:44px;width:auto;
   html[data-theme="panorama"] .hero-pan .pan-dots{margin-top:12px}
   html[data-theme="panorama"] .hero-pan h1 .eyebrow{justify-content:center}
 }
+
+/* ===== V63 — Panorama : la page active est visible dans le menu ===== */
+/* sous-menu : l'entrée de la page courante (texte blanc sur blanc avant) */
+html[data-theme="panorama"] .pan-top .site-header:not(.is-scrolled) .pnav .dd a[aria-current="page"],
+html[data-theme="panorama"] .pnav .dd a[aria-current="page"]{background:var(--accent-soft);color:var(--navy);font-weight:600;padding-left:26px}
+html[data-theme="panorama"] .pnav .dd a[aria-current="page"]::before{width:12px;height:2px;background:var(--gold)}
+html[data-theme="panorama"] .pnav .dd a[aria-current="page"]:hover{background:var(--accent-soft)}
+/* barre : trait doré sous la rubrique active, texte bien lisible dans tous les états */
+html[data-theme="panorama"] .pnav>li>a[aria-current="page"]::after,
+html[data-theme="panorama"] .pnav>li>button[aria-current="page"]::after{transform:scaleX(1);height:2px;background:var(--gold-soft)}
+html[data-theme="panorama"] .pan-top .site-header:not(.is-scrolled) .pnav>li>a[aria-current="page"]{background:rgba(255,255,255,.24);color:#fff;font-weight:600}
+html[data-theme="panorama"] .site-header.is-scrolled .pnav>li>a[aria-current="page"],
+html[data-theme="panorama"] .site-header:not(.pan-top-x).is-scrolled .pnav>li.has-dd:has(>a[aria-current="page"])>a{background:var(--accent-soft);color:var(--navy);font-weight:600}
+/* menu mobile : page courante en doré */
+html[data-theme="panorama"] .mnav a[aria-current="page"]{color:var(--gold);font-weight:600}
