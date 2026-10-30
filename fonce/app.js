@@ -677,7 +677,7 @@
   /* 3) pied de page : colonnes de liens repliées */
   $$('.foot-main > div').forEach(function (c) {
     if (c.classList.contains('foot-brand') || c.classList.contains('foot-contact')) return;
-    var h = c.querySelector(':scope > .fh, :scope > h4'), ul = c.querySelector(':scope > ul'); if (!h || !ul) return;
+    var h = c.querySelector(':scope > .fh, :scope > h3'), ul = c.querySelector(':scope > ul'); if (!h || !ul) return;
     c.classList.add('foot-acc'); h.setAttribute('role', 'button'); h.setAttribute('tabindex', '0'); h.setAttribute('aria-expanded', 'false');
     function tg() { var o = c.classList.toggle('open'); h.setAttribute('aria-expanded', o ? 'true' : 'false'); }
     h.addEventListener('click', tg); h.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); tg(); } });
@@ -712,4 +712,36 @@
   });
   /* le sommaire (liens #sec-n) ouvre la bonne rubrique */
   d.addEventListener('click', function (e) { var a = e.target.closest && e.target.closest('.toc a[href^="#"]'); if (!a) return; var t = d.getElementById(a.getAttribute('href').slice(1)); var s = t && t.closest('.m-acc'); if (s && !s.classList.contains('open')) { s.classList.add('open'); s.querySelector('.m-acc-h').setAttribute('aria-expanded', 'true'); } });
+})();
+
+/* ===== V64 — Mobile : téléphone dans l'en-tête, langues dans le menu, gestes de contact sur l'accueil ===== */
+(function () {
+  'use strict';
+  var d = document, $ = function (s, r) { return (r || d).querySelector(s); };
+  var hdr = $('.site-header .hdr');
+  if (hdr && !$('.m-tel', hdr)) {
+    var call = $('.callbar .c1');
+    var a = d.createElement('a'); a.className = 'm-tel'; a.href = 'tel:+41228095600';
+    a.setAttribute('aria-label', call ? call.textContent.trim() : 'Tel');
+    a.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg>';
+    hdr.appendChild(a);
+  }
+  var lang = $('.lang'), mn = $('.mnav');
+  if (lang && mn && !$('.m-lang', mn)) {
+    var w = d.createElement('div'); w.className = 'm-lang'; w.setAttribute('aria-label', lang.getAttribute('aria-label') || 'Langue');
+    Array.prototype.forEach.call(lang.querySelectorAll('a'), function (x) { w.appendChild(x.cloneNode(true)); });
+    mn.appendChild(w);
+  }
+  var fh = $('.form-home .container');
+  if (fh && !$('.m-actions', fh)) {
+    var c1 = $('.callbar .c1'), c2 = $('.callbar .c2');
+    var contact = $('.mnav a.l[href$="contact.html"]');
+    var box = d.createElement('div'); box.className = 'm-actions';
+    var items = [];
+    if (c1) items.push(['btn btn-primary', c1.getAttribute('href'), c1.textContent.trim()]);
+    if (c2) items.push(['btn btn-ghost', c2.getAttribute('href'), c2.textContent.trim()]);
+    if (contact) items.push(['btn btn-ghost', contact.getAttribute('href'), contact.textContent.trim()]);
+    items.forEach(function (it) { var l = d.createElement('a'); l.className = it[0]; l.href = it[1]; l.textContent = it[2]; box.appendChild(l); });
+    fh.appendChild(box);
+  }
 })();

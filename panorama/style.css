@@ -1979,3 +1979,145 @@ html[data-theme="panorama"] .site-header.is-scrolled .pnav>li>a[aria-current="pa
 html[data-theme="panorama"] .site-header:not(.pan-top-x).is-scrolled .pnav>li.has-dd:has(>a[aria-current="page"])>a{background:var(--accent-soft);color:var(--navy);font-weight:600}
 /* menu mobile : page courante en doré */
 html[data-theme="panorama"] .mnav a[aria-current="page"]{color:var(--gold);font-weight:600}
+
+/* ===== V64 — Mobile épuré (inspiré Combeau, Swarovski, Le Bod) : en-tête minimal, accueil plein écran, une idée par écran ===== */
+.m-tel,.m-actions,.m-lang{display:none}
+@media(max-width:700px){
+  html[data-theme][data-theme]{--hdr-h:56px;--mpad:20px}
+
+  /* — En-tête : menu à gauche, logo au centre, téléphone à droite — */
+  html[data-theme][data-theme] .topbar{display:none!important}
+  html[data-theme][data-theme] .site-header .hdr{display:grid;grid-template-columns:48px 1fr 48px;align-items:center;gap:0;min-height:var(--hdr-h);height:var(--hdr-h)}
+  html[data-theme][data-theme] .site-header .hdr>nav,html[data-theme][data-theme] .site-header .hl,html[data-theme][data-theme] .site-header .hr>nav{display:none}
+  html[data-theme][data-theme] .site-header .hdr-cta,html[data-theme][data-theme] .site-header .hr,html[data-theme][data-theme] .site-header .hr .mob{display:contents}
+  html[data-theme][data-theme] .site-header .brand{grid-column:2;grid-row:1;justify-self:center}
+  html[data-theme][data-theme] .site-header .brand img{height:30px;width:auto}
+  html[data-theme][data-theme] .site-header .menu-btn{grid-column:1;grid-row:1;justify-self:start;width:44px;height:44px;min-height:0;padding:0;border:0;background:none;box-shadow:none;display:grid;place-items:center}
+  html[data-theme][data-theme] .site-header .menu-btn span{display:none}
+  html[data-theme][data-theme] .site-header .tel-pill{display:none}
+  html[data-theme][data-theme] .m-tel{display:grid;grid-column:3;grid-row:1;justify-self:end;place-items:center;width:44px;height:44px;border-radius:50%;color:inherit}
+  html[data-theme][data-theme] .m-tel svg{width:22px;height:22px}
+  html[data-theme][data-theme] .scroll-pad,html[data-theme][data-theme] .scrollbar{display:none}
+
+  /* — Barre d'appel : un seul bouton — */
+  html[data-theme][data-theme] .callbar{left:50%;right:auto;transform:translateX(-50%);width:auto;padding:0;background:none;border:0;box-shadow:none;bottom:16px}
+  html[data-theme][data-theme] .callbar .c2{display:none}
+  html[data-theme][data-theme] .callbar .c1{padding:0 22px;min-height:46px;font-size:.82rem;box-shadow:0 8px 24px rgba(10,20,40,.28)}
+
+  /* — Menu plein écran : langues en bas — */
+  html[data-theme][data-theme] .m-lang{display:flex;justify-content:center;gap:18px;margin:26px 0 8px}
+  html[data-theme][data-theme] .m-lang a{font-size:.8rem;letter-spacing:.14em;text-decoration:none;opacity:.7;padding:6px 2px;border-bottom:1px solid transparent}
+  html[data-theme][data-theme] .m-lang a[aria-current]{opacity:1;border-bottom-color:currentColor}
+
+  /* — Accueil : photo plein écran, titre, un bouton — */
+  html[data-theme][data-theme] .hero-a{position:relative;display:flex;padding:0;min-height:calc(100svh - var(--hdr-h) - 8px);max-height:760px;background:#142B46;color:#fff;overflow:hidden}
+  html[data-theme][data-theme] .hero-a .hero-grid{position:relative;z-index:2;width:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;text-align:center;padding:0 var(--mpad) 84px;gap:0}
+  html[data-theme][data-theme] .hero-a .hero-media{position:absolute;inset:0;width:100%;max-width:none;margin:0;order:0;z-index:0}
+  html[data-theme][data-theme] .hero-a .hero-media .arch{position:absolute;inset:0;height:100%;width:100%;max-width:none;border-radius:0;box-shadow:none;transform:none}
+  html[data-theme][data-theme] .hero-a .hero-media .arch::before,html[data-theme][data-theme] .hero-a .hero-media .arch::after{display:none}
+  html[data-theme][data-theme] .hero-a .hero-media .a-in{height:100%;aspect-ratio:auto;border-radius:0}
+  html[data-theme][data-theme] .hero-a .hero-media img{width:100%;height:100%;object-fit:cover;object-position:50% 28%}
+  html[data-theme][data-theme] .hero-a .hero-media .chip-f{display:none}
+  html[data-theme][data-theme] .hero-a .hero-media::after,html[data-theme][data-theme] .hero-pan .pan-shade{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,16,32,.35) 0%,rgba(8,16,32,.05) 30%,rgba(8,16,32,.55) 62%,rgba(8,16,32,.9) 100%);pointer-events:none}
+  html[data-theme][data-theme] .hero-a .hero-copy{width:100%;color:#fff;text-align:center}
+  html[data-theme][data-theme] .hero-a h1,html[data-theme][data-theme] .hero-a h1 *,html[data-theme][data-theme] .hero-pan h1,html[data-theme][data-theme] .hero-pan h1 *{color:#fff}
+  html[data-theme][data-theme] .hero-a h1,html[data-theme][data-theme] .hero-pan h1{font-size:1.5rem;line-height:1.22;margin:0 0 .25em}
+  html[data-theme][data-theme] .hero-a .eyebrow,html[data-theme][data-theme] .hero-pan .eyebrow,html[data-theme][data-theme] .hero-a h1 .eyebrow{color:#E8D8B0;justify-content:center;margin-bottom:.7rem;font-size:.62rem}
+  html[data-theme][data-theme] .hero-a h1 em,html[data-theme][data-theme] .hero-pan h1 em{display:block;margin-top:.6em;font-size:.88rem;line-height:1.5;opacity:.88}
+  html[data-theme][data-theme] .hero-a .btns,html[data-theme][data-theme] .hero-pan .btns{margin-top:1.3rem;width:100%;gap:0}
+  html[data-theme][data-theme] .hero-a .btn-primary,html[data-theme][data-theme] .hero-pan .btn-primary{background:#fff;color:#142B46;border-color:#fff;box-shadow:none}
+  html[data-theme][data-theme] .hero-a .btn-ghost,html[data-theme][data-theme] .hero-pan .btn-ghost{display:none}
+  html[data-theme][data-theme] .hero-a .sos{display:block;margin:18px 0 0;padding:0;background:none;border:0;box-shadow:none;text-align:center;color:#fff}
+  html[data-theme][data-theme] .hero-a .sos .ico-box,html[data-theme][data-theme] .hero-a .sos p{display:none}
+  html[data-theme][data-theme] .hero-a .sos strong{display:block;font-size:.8rem;font-weight:400;opacity:.85;color:#fff}
+  html[data-theme][data-theme] .hero-a .sos .num{display:inline-block;margin-top:2px;font-size:.88rem;color:#fff;text-decoration:underline;text-underline-offset:4px}
+  /* Panorama : même principe */
+  html[data-theme][data-theme] .hero-pan{position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:0;min-height:calc(100svh - 8px);max-height:800px;background:#142B46;overflow:hidden}
+  html[data-theme][data-theme] .hero-pan .pan-bg{position:absolute;inset:0;height:100%;border-radius:0}
+  html[data-theme][data-theme] .hero-pan .pan-shade{height:100%;border-radius:0}
+  html[data-theme][data-theme] .hero-pan .pan-copy{position:relative;z-index:2;padding:0 var(--mpad) 84px;text-align:center;display:block}
+  html[data-theme][data-theme] .hero-pan .pan-txt{text-align:center}
+  html[data-theme][data-theme] .hero-pan .pan-side{display:block;margin-top:18px}
+  html[data-theme][data-theme] .hero-pan .pan-help{background:none;border:0;padding:0;box-shadow:none;backdrop-filter:none}
+  html[data-theme][data-theme] .hero-pan .pan-help .ph-t,html[data-theme][data-theme] .hero-pan .pan-help .ph:not(.urgent),html[data-theme][data-theme] .hero-pan .pan-dots{display:none}
+  html[data-theme][data-theme] .hero-pan .pan-help .ph.urgent{display:block;background:none;border:0;padding:0;text-align:center;color:#fff;font-size:.88rem;text-decoration:underline;text-underline-offset:4px}
+  html[data-theme][data-theme] .hero-pan .pan-help .ph.urgent *{color:#fff;font-size:inherit}
+  html[data-theme][data-theme] .hero-pan .pan-help .ph.urgent small,html[data-theme][data-theme] .hero-pan .pan-help .ph.urgent svg{display:none}
+
+  /* — Rythme et sobriété — */
+  html[data-theme][data-theme] main .section{padding-block:52px}
+  html[data-theme][data-theme] main .section.tight{padding-block:36px}
+  html[data-theme][data-theme] .sec-head{margin-bottom:22px;text-align:center}
+  html[data-theme][data-theme] .sec-head p.lead,html[data-theme][data-theme] .sec-head>p:not(.eyebrow){display:none}
+  html[data-theme][data-theme] .marq,html[data-theme][data-theme] .stmt,html[data-theme][data-theme] .pillars{display:none}
+  html[data-theme][data-theme] .stats-band{padding-block:26px}
+  html[data-theme][data-theme] .intro-grid>*:last-child:not(:first-child){display:none}
+
+  /* — Services : grandes vignettes photo, une par ligne (comme les catégories Swarovski) — */
+  html[data-theme][data-theme] .pull .s-track,html[data-theme][data-theme] .c3d-sec .s-track{display:flex;flex-direction:column;gap:12px;transform:none;overflow:visible;margin:0;padding:0}
+  html[data-theme][data-theme] .pull .s-item{width:100%;flex:none;min-width:0}
+  html[data-theme][data-theme] .pull .s-ctrl,html[data-theme][data-theme] .pull .s-dots{display:none}
+  html[data-theme][data-theme] .pull .fslide{position:relative;display:block;border:0;border-radius:18px;background:#142B46;overflow:hidden;box-shadow:none}
+  html[data-theme][data-theme] .pull .fs-media{aspect-ratio:4/3!important;width:100%;max-width:none;border-radius:0;margin:0}
+  html[data-theme][data-theme] .pull .fs-body{position:absolute;left:0;right:0;bottom:0;padding:56px 18px 18px;text-align:left;color:#fff;background:linear-gradient(180deg,transparent,rgba(8,16,32,.82))}
+  html[data-theme][data-theme] .pull .fs-body .eyebrow,html[data-theme][data-theme] .pull .fs-body p:not(.eyebrow){display:none}
+  html[data-theme][data-theme] .pull .fs-body h3{color:#fff;font-size:1.2rem;margin:0 0 .3em}
+  html[data-theme][data-theme] .pull .fs-body .link-arrow{color:#fff;font-size:.8rem;border-color:rgba(255,255,255,.5)}
+  html[data-theme][data-theme] .pull .fs-body .link-arrow::after{content:"";position:absolute;inset:0}
+
+  /* — Produits : 2 colonnes, titre seulement — */
+  html[data-theme][data-theme] .section .slider.per-3 .s-track:has(.pcard){display:grid;grid-template-columns:1fr 1fr;gap:10px;transform:none;overflow:visible}
+  html[data-theme][data-theme] .section .slider:has(.pcard) .s-item{width:auto;min-width:0}
+  html[data-theme][data-theme] .section .slider:has(.pcard) .s-ctrl{display:none}
+  html[data-theme][data-theme] .pcard{padding:18px 12px;text-align:center;position:relative}
+  html[data-theme][data-theme] .pcard p{display:none}
+  html[data-theme][data-theme] .pcard h3{font-size:.95rem;margin-bottom:.4em}
+  html[data-theme][data-theme] .pcard .link-arrow{font-size:.72rem}
+  html[data-theme][data-theme] .pcard .link-arrow::after{content:"";position:absolute;inset:0}
+
+  /* — Avis, horaires — */
+  html[data-theme][data-theme] #avis .btns .btn-ghost{display:none}
+  html[data-theme][data-theme] .hours .card>p{display:none}
+
+  /* — Contact : trois gestes simples au lieu du formulaire et de la vidéo — */
+  html[data-theme][data-theme] .form-home .contact-main{display:none}
+  html[data-theme][data-theme] .form-home .m-actions{display:grid;gap:10px}
+  html[data-theme][data-theme] .form-home .m-actions .btn{width:100%}
+
+  /* — Blog : image + titre — */
+  html[data-theme][data-theme] .post p,html[data-theme][data-theme] .post .meta,html[data-theme][data-theme] .post .read{display:none}
+  html[data-theme][data-theme] .post-img{aspect-ratio:16/10}
+
+  /* — Dernier appel : sobre — */
+  html[data-theme][data-theme] .cta-card p{display:none}
+  html[data-theme][data-theme] .cta-card{padding:26px 20px;text-align:center}
+}
+
+/* — correctifs V64 (empilement du héros, bouton d'appel, hauteur des vignettes) — */
+@media(max-width:700px){
+  html[data-theme][data-theme] .hero-a .hero-media{z-index:-1}
+  html[data-theme][data-theme] .hero-a .hero-copy{position:relative;z-index:2}
+  html[data-theme][data-theme] .callbar .c1{white-space:nowrap;width:auto}
+  html[data-theme][data-theme] .pull .s-item,html[data-theme][data-theme] .pull .fslide{height:auto;min-height:0}
+  html[data-theme][data-theme] .pull .fslide .fs-media img{height:100%}
+}
+
+/* — correctifs V64 (2) : icône du menu, héros — */
+@media(max-width:700px){
+  html[data-theme][data-theme] .site-header .menu-btn{color:var(--nav-ink,#142B46)}
+  html[data-theme="panorama"][data-theme] .pan-top .site-header:not(.is-scrolled) .menu-btn,html[data-theme="panorama"][data-theme] .pan-top .site-header:not(.is-scrolled) .m-tel{color:#fff}
+  html[data-theme="fonce"][data-theme] .site-header .menu-btn,html[data-theme="fonce"][data-theme] .site-header .m-tel{color:#EAF0FA}
+  html[data-theme][data-theme] .hero-a .sos{display:none}
+  html[data-theme][data-theme] .hero-a .hero-grid{padding-bottom:92px}
+  html[data-theme="fonce"][data-theme] .hero-a h1,html[data-theme="fonce"][data-theme] .hero-a h1 *{color:#fff!important;opacity:1}
+  html[data-theme="fonce"][data-theme] .hero-a h1 em{opacity:.9;font-size:.9rem}
+  html[data-theme="panorama"][data-theme] .hero-pan{min-height:min(640px,calc(100svh - 8px))}
+  html[data-theme="panorama"][data-theme] .hero-pan .pan-bg img{object-position:50% 35%}
+}
+
+/* — correctifs V64 (3) : bouton d'appel à gauche, boutons à deux lignes, haut du héros Panorama — */
+@media(max-width:700px){
+  html[data-theme][data-theme] .callbar{left:16px;right:auto;transform:none}
+  html[data-theme][data-theme] .cta-card .btn{white-space:normal;line-height:1.3;padding-block:12px;min-height:48px;height:auto}
+  html[data-theme="panorama"][data-theme] .hero-pan .pan-shade{background:linear-gradient(180deg,rgba(8,16,32,.6) 0%,rgba(8,16,32,.2) 20%,rgba(8,16,32,.05) 36%,rgba(8,16,32,.55) 64%,rgba(8,16,32,.9) 100%)}
+}
