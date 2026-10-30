@@ -1812,3 +1812,22 @@ html[data-theme="clair"] .site-footer .foot-brand img{height:44px;width:auto;max
   html[data-theme][data-theme] .cta-card .btn{white-space:normal;line-height:1.3;padding-block:12px;min-height:48px;height:auto}
   html[data-theme="panorama"][data-theme] .hero-pan .pan-shade{background:linear-gradient(180deg,rgba(8,16,32,.6) 0%,rgba(8,16,32,.2) 20%,rgba(8,16,32,.05) 36%,rgba(8,16,32,.55) 64%,rgba(8,16,32,.9) 100%)}
 }
+
+/* ===== V65 — Menu mobile : boutons centrés, rythme régulier ===== */
+@media(max-width:700px){
+  html[data-theme][data-theme] .mnav .big-call,
+  html[data-theme][data-theme] .mnav .big-q{justify-content:center;text-align:center;gap:12px;padding:0 24px;width:100%;box-sizing:border-box;min-height:58px;line-height:1.25}
+  html[data-theme][data-theme] .mnav .big-call{margin-bottom:14px}
+  html[data-theme][data-theme] .mnav .big-q{margin:0 0 36px}
+  html[data-theme][data-theme] .mnav .big-call svg,
+  html[data-theme][data-theme] .mnav .big-q svg{flex:0 0 auto}
+  /* rubriques : petit titre sans soulignement, espacé de manière régulière */
+  html[data-theme][data-theme] .mnav .fh{margin:26px 0 2px}
+  html[data-theme][data-theme] .mnav .fh a{border-bottom:0;padding-bottom:0}
+  html[data-theme][data-theme] .mnav-grid{gap:0}
+  html[data-theme][data-theme] .mnav a.l{padding:15px 0}
+}
+@media(max-width:700px){
+  /* barre d'appel masquée tant que le menu est ouvert (elle recouvrait le bas de la liste) */
+  html[data-theme][data-theme] body:has(.mnav.open) .callbar{display:none}
+}
