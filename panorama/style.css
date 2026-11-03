@@ -2140,3 +2140,18 @@ html[data-theme="panorama"] .mnav a[aria-current="page"]{color:var(--gold);font-
   /* barre d'appel masquée tant que le menu est ouvert (elle recouvrait le bas de la liste) */
   html[data-theme][data-theme] body:has(.mnav.open) .callbar{display:none}
 }
+/* ===== V66 — Panorama : vidéo remontée sous le ruban bleu, photo d'équipe à sa place dans le contact ===== */
+html[data-theme="panorama"] .vid-home{padding-block:calc(var(--sec) * .55)}
+html[data-theme="panorama"] .vid-home .container{display:flex;flex-direction:column;align-items:center}
+html[data-theme="panorama"] .vid-home .vid-head{text-align:center;max-width:46rem;margin:0 auto 1.8rem}
+html[data-theme="panorama"] .vid-home .vid-head h2{font-size:var(--fs-h3);line-height:1.35;margin:0}
+html[data-theme="panorama"] .vid-home .vid-head h2 span{display:block;margin-top:.45em;font-size:.82em;font-weight:inherit;color:var(--ink-soft)}
+html[data-theme="panorama"] .vid-home .vcard{width:min(920px,100%);max-width:none;margin:0 auto}
+html[data-theme="panorama"] .contact-photo{padding:0;overflow:hidden}
+html[data-theme="panorama"] .contact-photo img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:var(--r-l)}
+@media(max-width:700px){
+  html[data-theme][data-theme] .vid-home{display:block;padding-block:36px}
+  html[data-theme][data-theme] .vid-home .vid-head{margin-bottom:16px}
+  html[data-theme][data-theme] .vid-home .vid-head h2{font-size:1.05rem}
+  html[data-theme][data-theme] .vid-home .vcard{display:block}
+}
