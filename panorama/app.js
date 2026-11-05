@@ -1106,7 +1106,7 @@
     var ps = $$('p', sec).filter(function (p) { return !p.classList.contains('sign') && !p.classList.contains('quote') && !p.classList.contains('lead') && !p.classList.contains('eyebrow') && p.textContent.trim().length > 80 && !p.closest('.btns'); });
     var quote = sec.querySelector('.quote');
     if (ps.length > 1) {
-      var hid = ps.slice(1).concat(quote ? [quote] : []).concat([sign]);
+      var hid = ps.slice(1).concat([sign]);
       hid.forEach(function (e) { e.classList.add('m-hide'); });
       var btn = mkBtn(L[0], function () { var open = btn.getAttribute('aria-expanded') === 'true'; hid.forEach(function (e) { e.classList.toggle('m-hide', open); }); btn.setAttribute('aria-expanded', open ? 'false' : 'true'); btn.textContent = open ? L[0] : L[1]; });
       ps[0].parentNode.insertBefore(btn, ps[0].nextSibling);
@@ -1191,5 +1191,31 @@
     if (contact) items.push(['btn btn-ghost', contact.getAttribute('href'), contact.textContent.trim()]);
     items.forEach(function (it) { var l = d.createElement('a'); l.className = it[0]; l.href = it[1]; l.textContent = it[2]; box.appendChild(l); });
     fh.appendChild(box);
+  }
+})();
+
+/* V69 — Panorama mobile : textes repliables (le contenu reste dans le HTML, visible des moteurs) */
+(function () {
+  var d = document;
+  if (d.documentElement.getAttribute('data-theme') !== 'panorama') return;
+  var L = { fr: ['Lire la suite', 'Réduire'], en: ['Read more', 'Show less'], de: ['Weiterlesen', 'Weniger anzeigen'], es: ['Leer más', 'Ver menos'], pt: ['Ler mais', 'Ver menos'] };
+  var t = L[(d.documentElement.lang || 'fr').slice(0, 2)] || L.fr;
+  function btn(target, id) {
+    var b = d.createElement('button'); b.type = 'button'; b.className = 'm-more-btn'; b.textContent = t[0];
+    b.setAttribute('aria-expanded', 'false'); b.setAttribute('aria-controls', id);
+    b.addEventListener('click', function () {
+      var o = target.classList.toggle('open'); b.setAttribute('aria-expanded', o ? 'true' : 'false'); b.firstChild.nodeValue = o ? t[1] : t[0];
+    });
+    return b;
+  }
+  // Page Salons (et pages à bande de points clés) : introduction raccourcie
+  var f = d.querySelector('.facts.f5');
+  if (f) {
+    var sec = f.closest('section'), prev = sec && sec.previousElementSibling;
+    var lead = prev && prev.querySelector('.lead');
+    if (lead && lead.textContent.length > 240) {
+      lead.classList.add('m-clamp'); lead.id = lead.id || 'intro-lead';
+      lead.parentNode.insertBefore(btn(lead, lead.id), lead.nextSibling);
+    }
   }
 })();

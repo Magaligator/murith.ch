@@ -528,8 +528,8 @@
     var left = d.createElement('div'); left.className = 'mn-left';
     [grid, call, q, soc].forEach(function (x) { if (x) left.appendChild(x); });
     var prev = d.createElement('div'); prev.className = 'mn-prev'; prev.setAttribute('aria-hidden', 'true');
-    var MAP = { 'notre-histoire': 'histoire3.jpg', 'obseques': 'deuil-ceremonie.jpg', 'salons': 'hero-salons.jpg', 'cercueils': 'hero-cercueils.jpg', 'fleurs': 'hero-fleurs.jpg', 'formalites': 'hero-formalites.jpg', 'devis': 'hero-devis.jpg', 'conseillers': 'equipe-chapelle-cluse.jpg', 'prevoyance': 'hero-prevoyance.jpg', 'transports': 'hero-transports.jpg', 'murith-care': 'hero-care.jpg', 'blog': 'cartes.jpg', 'remerciements': 'hero-remerciements.jpg', 'contact': 'hero-contact.jpg' };
-    var DEF = 'equipe-chapelle-cluse.jpg', names = {}, imgs = {};
+    var MAP = { 'notre-histoire': 'histoire3.jpg', 'obseques': 'deuil-ceremonie.jpg', 'salons': 'hero-salons.jpg', 'cercueils': 'hero-cercueils.jpg', 'fleurs': 'hero-fleurs.jpg', 'formalites': 'hero-formalites.jpg', 'devis': 'hero-devis.jpg', 'conseillers': 'equipe-pompes-funebres-murith-geneve-2000.jpg', 'prevoyance': 'hero-prevoyance.jpg', 'transports': 'hero-transports.jpg', 'murith-care': 'hero-care.jpg', 'blog': 'cartes.jpg', 'remerciements': 'hero-remerciements.jpg', 'contact': 'hero-contact.jpg' };
+    var DEF = 'equipe-pompes-funebres-murith-geneve-2000.jpg', names = {}, imgs = {};
     function key(h) { var m = (h || '').match(/([a-z-]+)\.html/); return m ? m[1].replace(/^post-.*/, 'blog') : ''; }
     var files = [DEF]; Object.keys(MAP).forEach(function (k) { if (files.indexOf(MAP[k]) < 0) files.push(MAP[k]); });
     files.forEach(function (f, i) { var im = d.createElement('img'); im.src = pre + f; im.alt = ''; im.loading = 'lazy'; if (i === 0) im.className = 'on'; imgs[f] = im; prev.appendChild(im); });

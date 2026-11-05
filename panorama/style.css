@@ -2155,3 +2155,49 @@ html[data-theme="panorama"] .contact-photo img{display:block;width:100%;height:a
   html[data-theme][data-theme] .vid-home .vid-head h2{font-size:1.05rem}
   html[data-theme][data-theme] .vid-home .vcard{display:block}
 }
+/* ===== V68 — Panorama : photo d'équipe (WebP/JPEG responsive) avec légende ===== */
+html[data-theme="panorama"] .contact-photo-fig{margin:0}
+html[data-theme="panorama"] .contact-photo-fig picture{display:block}
+html[data-theme="panorama"] .contact-photo-fig img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:var(--r-l)}
+html[data-theme="panorama"] .contact-photo-fig figcaption{margin-top:.8rem;font-size:var(--fs-sm,.875rem);line-height:1.5;color:var(--ink-soft);text-align:center}
+
+/* ===== V69 — Fleurs : catalogue feuilletable (identique à murith.ch/fleurs) ===== */
+.flip{position:relative;width:min(1100px,100%);margin:0 auto;aspect-ratio:16/10;min-height:480px;border-radius:var(--r-l,12px);overflow:hidden;background:#1d2a44;box-shadow:0 18px 50px rgba(10,20,40,.18)}
+.flip iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+.flip-open{text-align:center;margin:.9rem 0 0;font-size:.9rem}
+.flip-open a{color:inherit;text-underline-offset:3px}
+@media(max-width:700px){
+  .flip{aspect-ratio:auto;height:min(78svh,620px);min-height:420px;border-radius:12px}
+}
+
+/* ===== V69 — Panorama mobile : « Qui sommes-nous » complet (texte SEO conservé, repliable), CTA « Mon devis », bande de points compacte ===== */
+@media(max-width:700px){
+  /* Qui sommes-nous : phrase d'engagement visible + texte d'introduction (repliable) */
+  html[data-theme="panorama"][data-theme][lang] .pb-s .intro-grid{gap:18px}
+  html[data-theme="panorama"][data-theme][lang] .pb-s .intro-grid>*:last-child:not(:first-child){display:block}
+  html[data-theme="panorama"][data-theme][lang] .pb-s .quote{display:block;font-size:1.02rem;line-height:1.5;margin:14px 0 0;padding:2px 0 2px 14px;text-align:left;border-left:2px solid var(--gold-soft,#C9B285)}
+  html[data-theme="panorama"][data-theme][lang] .pb-s .quote .br-d{display:none}
+  html[data-theme="panorama"][data-theme][lang] .pb-s .intro-grid>*:last-child p{font-size:.95rem;line-height:1.6;margin:0 0 .8em;text-align:left}
+  html[data-theme="panorama"][data-theme][lang] .pb-s .sign{margin:.2em 0 1em;font-size:.9rem}
+  html[data-theme="panorama"][data-theme][lang] .m-more-btn{display:flex;width:max-content;align-items:center;gap:6px;margin:4px 0 16px;padding:6px 0;background:none;border:0;border-bottom:1px solid currentColor;font:inherit;font-size:.88rem;font-weight:600;color:var(--navy,#1F3A5F);cursor:pointer}
+  html[data-theme="panorama"][data-theme][lang] .m-more-btn::after{content:"+";font-weight:400}
+  html[data-theme="panorama"][data-theme][lang] .m-more-btn[aria-expanded="true"]::after{content:"–"}
+  html[data-theme="panorama"][data-theme][lang] .pb-s .btns{display:grid;grid-template-columns:1fr;gap:10px}
+  html[data-theme="panorama"][data-theme][lang] .pb-s .btns .btn{justify-content:center;width:100%}
+
+  /* CTA « Mon devis » toujours visible à côté de « Appeler » */
+  html[data-theme="panorama"][data-theme][lang] .callbar{display:flex;gap:8px;align-items:center;justify-content:center;width:calc(100% - 24px);max-width:420px}
+  html[data-theme="panorama"][data-theme][lang] .callbar .c1{flex:1 1 auto;justify-content:center;padding:0 14px;white-space:nowrap}
+  html[data-theme="panorama"][data-theme][lang] .callbar .c2{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;min-height:46px;padding:0 20px;border-radius:999px;background:#fff;color:var(--navy,#1F3A5F);border:1.5px solid var(--navy,#1F3A5F);font-weight:600;font-size:.82rem;text-decoration:none;box-shadow:0 8px 24px rgba(10,20,40,.22);white-space:nowrap}
+
+  /* Page Salons : introduction courte puis points clés en liste compacte, avant la galerie */
+  html[data-theme="panorama"][data-theme][lang] .m-clamp{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden;text-align:left}
+  html[data-theme="panorama"][data-theme][lang] .m-clamp.open{display:block;-webkit-line-clamp:unset}
+  html[data-theme="panorama"][data-theme][lang] .section.alt:has(.facts.f5){padding-block:10px}
+  html[data-theme="panorama"][data-theme][lang] .facts.f5{grid-template-columns:1fr;gap:0}
+  html[data-theme="panorama"][data-theme][lang] .facts.f5 .fact,html[data-theme="panorama"][data-theme][lang] .facts.f5 .fact:nth-child(n){flex-direction:row;align-items:center;flex:none;width:100%;max-width:none;gap:14px;padding:11px 2px;border:0;border-top:1px solid var(--line);text-align:left}
+  html[data-theme="panorama"][data-theme][lang] .facts.f5 .fact:first-child{border-top:0}
+  html[data-theme="panorama"][data-theme][lang] .facts.f5 .ico-ring{width:40px;height:40px;margin:0;flex:none}
+  html[data-theme="panorama"][data-theme][lang] .facts.f5 .ico-ring svg{width:20px;height:20px}
+  html[data-theme="panorama"][data-theme][lang] .facts.f5 .fact>span:not(.ico-ring){font-size:.92rem;line-height:1.4;max-width:none;margin:0;color:var(--ink)}
+}

@@ -1792,3 +1792,12 @@ html[data-theme="fonce"] .tl-item .tl-body h2{margin:0 0 .55em}
   /* barre d'appel masquée tant que le menu est ouvert (elle recouvrait le bas de la liste) */
   html[data-theme][data-theme] body:has(.mnav.open) .callbar{display:none}
 }
+
+/* ===== V69 — Fleurs : catalogue feuilletable (identique à murith.ch/fleurs) ===== */
+.flip{position:relative;width:min(1100px,100%);margin:0 auto;aspect-ratio:16/10;min-height:480px;border-radius:var(--r-l,12px);overflow:hidden;background:#1d2a44;box-shadow:0 18px 50px rgba(10,20,40,.18)}
+.flip iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+.flip-open{text-align:center;margin:.9rem 0 0;font-size:.9rem}
+.flip-open a{color:inherit;text-underline-offset:3px}
+@media(max-width:700px){
+  .flip{aspect-ratio:auto;height:min(78svh,620px);min-height:420px;border-radius:12px}
+}
