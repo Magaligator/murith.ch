@@ -2190,14 +2190,23 @@ html[data-theme="panorama"] .contact-photo-fig figcaption{margin-top:.8rem;font-
   html[data-theme="panorama"][data-theme][lang] .callbar .c1{flex:1 1 auto;justify-content:center;padding:0 14px;white-space:nowrap}
   html[data-theme="panorama"][data-theme][lang] .callbar .c2{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;min-height:46px;padding:0 20px;border-radius:999px;background:#fff;color:var(--navy,#1F3A5F);border:1.5px solid var(--navy,#1F3A5F);font-weight:600;font-size:.82rem;text-decoration:none;box-shadow:0 8px 24px rgba(10,20,40,.22);white-space:nowrap}
 
-  /* Page Salons : introduction courte puis points clés en liste compacte, avant la galerie */
+  /* Page Salons : introduction courte + points clés interactifs */
   html[data-theme="panorama"][data-theme][lang] .m-clamp{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden;text-align:left}
   html[data-theme="panorama"][data-theme][lang] .m-clamp.open{display:block;-webkit-line-clamp:unset}
-  html[data-theme="panorama"][data-theme][lang] .section.alt:has(.facts.f5){padding-block:10px}
-  html[data-theme="panorama"][data-theme][lang] .facts.f5{grid-template-columns:1fr;gap:0}
-  html[data-theme="panorama"][data-theme][lang] .facts.f5 .fact,html[data-theme="panorama"][data-theme][lang] .facts.f5 .fact:nth-child(n){flex-direction:row;align-items:center;flex:none;width:100%;max-width:none;gap:14px;padding:11px 2px;border:0;border-top:1px solid var(--line);text-align:left}
-  html[data-theme="panorama"][data-theme][lang] .facts.f5 .fact:first-child{border-top:0}
-  html[data-theme="panorama"][data-theme][lang] .facts.f5 .ico-ring{width:40px;height:40px;margin:0;flex:none}
-  html[data-theme="panorama"][data-theme][lang] .facts.f5 .ico-ring svg{width:20px;height:20px}
-  html[data-theme="panorama"][data-theme][lang] .facts.f5 .fact>span:not(.ico-ring){font-size:.92rem;line-height:1.4;max-width:none;margin:0;color:var(--ink)}
+  /* Salons : les 5 points clés deviennent une rangée interactive, intégrée sous le texte d'introduction */
+  html[data-theme="panorama"][data-theme][lang] .section.alt.m-empty{display:none}
+  html[data-theme="panorama"][data-theme][lang] .facts.f5.is-tabs{display:flex;justify-content:space-between;gap:6px;margin:20px 0 0;padding:0;position:relative}
+  html[data-theme="panorama"][data-theme][lang] .facts.f5.is-tabs .fact,html[data-theme="panorama"][data-theme][lang] .facts.f5.is-tabs .fact:nth-child(n){flex:1 1 0;min-width:0;width:auto;max-width:none;flex-direction:column;align-items:center;justify-content:flex-start;gap:0;padding:2px 0;margin:0;border:0;background:none;box-shadow:none;cursor:pointer;-webkit-tap-highlight-color:transparent;transform:none}
+  html[data-theme="panorama"][data-theme][lang] .facts.f5.is-tabs .fact:hover{transform:none;background:none;box-shadow:none}
+  html[data-theme="panorama"][data-theme][lang] .facts.f5.is-tabs .ico-ring{width:54px;height:54px;margin:0;background:#fff;border:1px solid var(--line-strong);color:var(--navy,#1F3A5F);transition:transform .35s cubic-bezier(.2,.7,.2,1),background .3s,color .3s,border-color .3s,box-shadow .3s}
+  html[data-theme="panorama"][data-theme][lang] .facts.f5.is-tabs .ico-ring svg{width:24px;height:24px}
+  html[data-theme="panorama"][data-theme][lang] .facts.f5.is-tabs .fact.on .ico-ring{background:var(--navy,#1F3A5F);color:var(--gold-soft,#C9B285);border-color:var(--gold-soft,#C9B285);transform:translateY(-3px) scale(1.08);box-shadow:0 10px 22px -8px rgba(20,43,70,.5)}
+  html[data-theme="panorama"][data-theme][lang] .facts.f5.is-tabs .fact>span:not(.ico-ring){position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  html[data-theme="panorama"][data-theme][lang] .facts-panel{position:relative;margin:12px 0 0;padding:15px 16px 17px;border-radius:14px;background:#F2F6FC;border:1px solid var(--line);text-align:center;min-height:4.4em;display:flex;align-items:center;justify-content:center;font-size:.98rem;line-height:1.4;font-weight:500;color:var(--navy,#1F3A5F);overflow:hidden;touch-action:pan-y}
+  html[data-theme="panorama"][data-theme][lang] .facts-panel span{display:block;animation:fpIn .35s ease}
+  html[data-theme="panorama"][data-theme][lang] .facts-panel i{position:absolute;left:0;bottom:0;height:3px;width:0;background:var(--gold-soft,#C9B285)}
+  html[data-theme="panorama"][data-theme][lang] .facts-panel.run i{animation:fpBar 4.5s linear forwards}
+  @keyframes fpIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  @keyframes fpBar{from{width:0}to{width:100%}}
+  @media (prefers-reduced-motion:reduce){html[data-theme="panorama"][data-theme][lang] .facts-panel span{animation:none}html[data-theme="panorama"][data-theme][lang] .facts-panel.run i{animation:none}}
 }

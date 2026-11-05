@@ -1198,6 +1198,7 @@
 (function () {
   var d = document;
   if (d.documentElement.getAttribute('data-theme') !== 'panorama') return;
+  if (!window.matchMedia || !window.matchMedia('(max-width:700px)').matches) return;
   var L = { fr: ['Lire la suite', 'Réduire'], en: ['Read more', 'Show less'], de: ['Weiterlesen', 'Weniger anzeigen'], es: ['Leer más', 'Ver menos'], pt: ['Ler mais', 'Ver menos'] };
   var t = L[(d.documentElement.lang || 'fr').slice(0, 2)] || L.fr;
   function btn(target, id) {
@@ -1216,6 +1217,34 @@
     if (lead && lead.textContent.length > 240) {
       lead.classList.add('m-clamp'); lead.id = lead.id || 'intro-lead';
       lead.parentNode.insertBefore(btn(lead, lead.id), lead.nextSibling);
+    }
+    // Points clés : rangée d'icônes interactive, intégrée sous le texte d'introduction
+    var items = Array.prototype.slice.call(f.querySelectorAll('.fact'));
+    if (lead && items.length > 1) {
+      var col = lead.parentNode, anchor = col.querySelector('.btns');
+      col.insertBefore(f, anchor); sec.classList.add('m-empty');
+      f.classList.add('is-tabs'); f.setAttribute('role', 'tablist');
+      var panel = d.createElement('div'); panel.className = 'facts-panel'; panel.setAttribute('role', 'tabpanel'); panel.setAttribute('aria-live', 'polite');
+      var txt = d.createElement('span'), bar = d.createElement('i'); panel.appendChild(txt); panel.appendChild(bar);
+      f.parentNode.insertBefore(panel, f.nextSibling);
+      var cur = 0, timer = null, still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches, seen = false;
+      items.forEach(function (it, i) { it.setAttribute('role', 'tab'); it.setAttribute('tabindex', i ? '-1' : '0'); it.addEventListener('click', function () { show(i, true); }); it.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); show(i, true); } else if (e.key === 'ArrowRight') show((cur + 1) % items.length, true); else if (e.key === 'ArrowLeft') show((cur + items.length - 1) % items.length, true); }); });
+      function label(it) { var s = it.querySelector('span:not(.ico-ring):not(.big)'); return s ? s.textContent.trim() : ''; }
+      function arm() { clearTimeout(timer); panel.classList.remove('run'); if (still || !seen) return; void panel.offsetWidth; panel.classList.add('run'); timer = setTimeout(function () { show((cur + 1) % items.length, false); }, 4500); }
+      function show(i, user) {
+        cur = i;
+        items.forEach(function (it, k) { var on = k === i; it.classList.toggle('on', on); it.setAttribute('aria-selected', on ? 'true' : 'false'); it.setAttribute('tabindex', on ? '0' : '-1'); });
+        txt.textContent = label(items[i]); txt.style.animation = 'none'; void txt.offsetWidth; txt.style.animation = '';
+        var r = items[i].getBoundingClientRect(), pr = panel.getBoundingClientRect();
+        panel.style.setProperty('--arrow', (r.left + r.width / 2 - pr.left) + 'px');
+        if (user) { still = true; clearTimeout(timer); panel.classList.remove('run'); } else arm();
+      }
+      var sx = null;
+      panel.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, { passive: true });
+      panel.addEventListener('touchend', function (e) { if (sx === null) return; var dx = e.changedTouches[0].clientX - sx; sx = null; if (Math.abs(dx) > 40) show((cur + (dx < 0 ? 1 : items.length - 1)) % items.length, true); });
+      show(0, true); still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if ('IntersectionObserver' in window) new IntersectionObserver(function (en) { seen = en[0].isIntersecting; if (seen && !still) arm(); else { clearTimeout(timer); panel.classList.remove('run'); } }, { threshold: .6 }).observe(f);
+      window.addEventListener('resize', function () { show(cur, true); });
     }
   }
 })();
