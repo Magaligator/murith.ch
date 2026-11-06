@@ -2267,3 +2267,18 @@ html[data-theme="panorama"] .pan-ph-img[src*="corbillards"]{object-position:50% 
   html[data-theme="panorama"] .c3d-card img[src*="hero-prevoyance"]+.c3d-shade{background:linear-gradient(90deg,#142B46 0%,#142B46 38%,rgba(20,43,70,.55) 58%,rgba(20,43,70,0) 78%),linear-gradient(0deg,rgba(20,43,70,.5) 0%,rgba(20,43,70,0) 40%)}
   html[data-theme="panorama"] .c3d-card:has(img[src*="hero-prevoyance"]) .c3d-body{max-width:min(48%,460px)}
 }
+
+/* ===== V72 – Panorama mobile ===== */
+html[data-theme="panorama"] .pan-ph picture{display:contents}
+html[data-theme="panorama"] .promise-m{display:none}
+@media(max-width:700px){
+  /* la phrase « Nous privilégeons… » passe entre les chiffres et la vidéo ; « Chaque cérémonie… » reste masquée */
+  html[data-theme="panorama"][data-theme][lang] .stmt{display:none}
+  html[data-theme="panorama"][data-theme][lang] .stmt.promise-m{display:block;padding-block:38px}
+  html[data-theme="panorama"][data-theme][lang] .promise-m .stmt-t{font-size:1.18rem;line-height:1.42;max-width:none;font-weight:380}
+  html[data-theme="panorama"][data-theme][lang] .promise-m .container{padding-inline:24px}
+  /* la citation du bloc « Qui sommes-nous ? » reste dans le HTML (SEO) mais n'est plus affichée */
+  html[data-theme="panorama"][data-theme][lang] .intro-grid .quote{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);margin:0;padding:0;border:0;white-space:nowrap}
+  /* photo Transports : voiture seule, cadrée au centre */
+  html[data-theme="panorama"] .pan-ph-img[src*="corbillards"]{object-position:50% 56%}
+}
