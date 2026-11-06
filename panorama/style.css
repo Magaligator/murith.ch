@@ -2210,3 +2210,60 @@ html[data-theme="panorama"] .contact-photo-fig figcaption{margin-top:.8rem;font-
   @keyframes fpBar{from{width:0}to{width:100%}}
   @media (prefers-reduced-motion:reduce){html[data-theme="panorama"][data-theme][lang] .facts-panel span{animation:none}html[data-theme="panorama"][data-theme][lang] .facts-panel.run i{animation:none}}
 }
+
+/* ===== V69 — Panorama : section « Avis Google » moins imposante (texte intégral conservé dans le HTML) ===== */
+html[data-theme="panorama"] #avis{padding-block:clamp(44px,5vw,72px)}
+html[data-theme="panorama"] #avis .gr-head{margin-bottom:clamp(20px,2.6vw,32px)}
+html[data-theme="panorama"] #avis .gr-score{padding:10px 20px;gap:14px}
+html[data-theme="panorama"] #avis .gr-score b{font-size:clamp(1.7rem,2.4vw,2.2rem)}
+html[data-theme="panorama"] #avis .rv-card{padding:clamp(18px,1.8vw,26px);gap:14px}
+html[data-theme="panorama"] #avis .rv-t{font-size:1rem;line-height:1.55;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:5;overflow:hidden}
+html[data-theme="panorama"] #avis .rv-av{width:34px;height:34px;font-size:.9rem}
+html[data-theme="panorama"] #avis .rv-by small{display:none}
+html[data-theme="panorama"] #avis .btns{margin-top:1.8rem!important}
+@media(max-width:700px){
+  html[data-theme="panorama"][data-theme][lang] #avis{padding-block:32px 28px}
+  html[data-theme="panorama"][data-theme][lang] #avis .gr-head{flex-direction:row;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px;flex-wrap:nowrap}
+  html[data-theme="panorama"][data-theme][lang] #avis .gr-head .sec-head{text-align:left;flex:1 1 auto}
+  html[data-theme="panorama"][data-theme][lang] #avis .gr-head .eyebrow{justify-content:flex-start;text-align:left;margin-bottom:6px}
+  html[data-theme="panorama"][data-theme][lang] #avis .gr-head h2{font-size:1.2rem;line-height:1.25}
+  html[data-theme="panorama"][data-theme][lang] #avis .gr-score{flex:0 0 auto;margin:0;padding:6px 10px;gap:8px;border-radius:12px}
+  html[data-theme="panorama"][data-theme][lang] #avis .gr-score b{font-size:1.35rem}
+  html[data-theme="panorama"][data-theme][lang] #avis .gr-score .stars svg{width:10px;height:10px}
+  html[data-theme="panorama"][data-theme][lang] #avis .gr-score span:not(.stars){font-size:.66rem;margin-top:2px;letter-spacing:0;white-space:nowrap}
+  html[data-theme="panorama"][data-theme][lang] #avis .rv-card{padding:14px 16px;gap:8px}
+  html[data-theme="panorama"][data-theme][lang] #avis .rv-card .stars svg{width:12px;height:12px}
+  html[data-theme="panorama"][data-theme][lang] #avis .rv-t{font-size:.9rem;line-height:1.5;-webkit-line-clamp:4}
+  html[data-theme="panorama"][data-theme][lang] #avis .rv-av{width:28px;height:28px;font-size:.8rem}
+  html[data-theme="panorama"][data-theme][lang] #avis .rv-by{gap:10px}
+  html[data-theme="panorama"][data-theme][lang] #avis .rv-by b{font-size:.85rem}
+  html[data-theme="panorama"][data-theme][lang] #avis .s-ctrl{margin-top:12px}
+  html[data-theme="panorama"][data-theme][lang] #avis .s-btn{width:40px;height:40px}
+  html[data-theme="panorama"][data-theme][lang] #avis .btns{margin-top:16px!important}
+  html[data-theme="panorama"][data-theme][lang] #avis .btns .btn{min-height:44px;font-size:.88rem}
+}
+
+/* ===== V70 – Panorama (retours client 2026-11-06) ===== */
+/* Photo Transports : Mercedes en forêt (corbillards.jpg), cadrée sur la voiture */
+html[data-theme="panorama"] .pan-ph-img[src*="corbillards"]{object-position:50% 62%}
+@media(max-width:700px){
+  html[data-theme="panorama"] .pan-ph-img[src*="corbillards"]{object-position:44% 60%}
+  /* La phrase d'engagement revient entre les chiffres et la vidéo (mobile) */
+  html[data-theme="panorama"][data-theme][lang] .stmt{display:block;padding-block:40px}
+  html[data-theme="panorama"][data-theme][lang] .stmt .container{text-align:center}
+  html[data-theme="panorama"][data-theme][lang] .stmt .eyebrow{justify-content:center;margin-bottom:12px}
+  html[data-theme="panorama"][data-theme][lang] .stmt-t{font-size:1.4rem;line-height:1.28;margin-inline:auto;max-width:18ch}
+  html[data-theme="panorama"][data-theme][lang] .stmt .btns{display:none}
+}
+
+@media(max-width:700px){
+  /* carte Prévoyance : le texte ne recouvre plus les visages */
+  html[data-theme="panorama"] .c3d-card img[src*="hero-prevoyance"]{height:64%;bottom:auto;object-position:50% 18%}
+  html[data-theme="panorama"] .c3d-card img[src*="hero-prevoyance"]+.c3d-shade{background:linear-gradient(0deg,#142B46 0%,#142B46 34%,rgba(20,43,70,.55) 58%,rgba(20,43,70,0) 78%)}
+}
+/* carte Prévoyance (bureau) : photo à droite, texte sur fond marine à gauche */
+@media(min-width:701px){
+  html[data-theme="panorama"] .c3d-card img[src*="hero-prevoyance"]{left:auto;right:0;width:60%;object-position:50% 22%}
+  html[data-theme="panorama"] .c3d-card img[src*="hero-prevoyance"]+.c3d-shade{background:linear-gradient(90deg,#142B46 0%,#142B46 38%,rgba(20,43,70,.55) 58%,rgba(20,43,70,0) 78%),linear-gradient(0deg,rgba(20,43,70,.5) 0%,rgba(20,43,70,0) 40%)}
+  html[data-theme="panorama"] .c3d-card:has(img[src*="hero-prevoyance"]) .c3d-body{max-width:min(48%,460px)}
+}
