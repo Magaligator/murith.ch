@@ -2282,3 +2282,49 @@ html[data-theme="panorama"] .promise-m{display:none}
   /* photo Transports : voiture seule, cadrée au centre */
   html[data-theme="panorama"] .pan-ph-img[src*="corbillards"]{object-position:50% 56%}
 }
+
+/* ===== V74 – Panorama (retours client) ===== */
+/* Lightbox : les glissements horizontaux sont gérés par le script (balayage gauche/droite) */
+dialog.lb,.lb-in,.lb-in img{touch-action:pan-y pinch-zoom;-webkit-user-select:none;user-select:none}
+.lb-in img{-webkit-user-drag:none}
+/* Les cartes 3D (cylindre des salons, carrousel d'accueil) ne passent plus devant la barre de menu (WebKit/iOS) */
+html[data-theme="panorama"] .cyl,html[data-theme="panorama"] .c3d,html[data-theme="panorama"] .c3d-sec{isolation:isolate;position:relative;z-index:0}
+@media(max-width:700px){
+  html[data-theme="panorama"] .site-header{z-index:120;-webkit-transform:translateZ(0);transform:translateZ(0)}
+}
+
+/* ===== V74 – Panorama mobile : alignement homogène (titres, chapôs et textes d'introduction centrés) ===== */
+@media(max-width:700px){
+  html[data-theme="panorama"][data-theme][lang] main :is(h1,h2,.eyebrow,.lead,.sec-head,.sec-head p,.phead-text,.fl-hint,.cyl-hint){text-align:center}
+  html[data-theme="panorama"][data-theme][lang] main .eyebrow{justify-content:center}
+  html[data-theme="panorama"][data-theme][lang] main .sec-head,
+  html[data-theme="panorama"][data-theme][lang] main .intro-grid>div,
+  html[data-theme="panorama"][data-theme][lang] main .flo-intro .container,
+  html[data-theme="panorama"][data-theme][lang] main .cta-prev-sec .container>div:first-child{text-align:center}
+  /* paragraphes d'introduction de section */
+  html[data-theme="panorama"][data-theme][lang] main :is(.intro-grid,.flo-intro,.split)>div>p,
+  html[data-theme="panorama"][data-theme][lang] main .flo-intro p,
+  html[data-theme="panorama"][data-theme][lang] main section.tight>.container>p,
+  html[data-theme="panorama"][data-theme][lang] main .cta-prev-sec p.lead{text-align:center}
+  html[data-theme="panorama"][data-theme][lang] .intro-grid .m-more-btn,
+  html[data-theme="panorama"][data-theme][lang] .m-more-btn{margin-inline:auto;display:flex;justify-content:center}
+  /* Avis : en-tête centré comme les autres sections */
+  html[data-theme="panorama"][data-theme][lang] #avis .gr-head{flex-direction:column;align-items:center;text-align:center;gap:10px}
+  html[data-theme="panorama"][data-theme][lang] #avis .gr-head .eyebrow{justify-content:center;text-align:center}
+  html[data-theme="panorama"][data-theme][lang] #avis .gr-head h2{text-align:center}
+  /* boutons et liens d'action centrés */
+  html[data-theme="panorama"][data-theme][lang] main .btns{justify-content:center}
+}
+@media(max-width:700px){
+  html[data-theme="panorama"][data-theme][lang] .pb-s .intro-grid>*:last-child p{text-align:center}
+  html[data-theme="panorama"][data-theme][lang] .pb-s .intro-grid>*:last-child .m-more-btn{margin-inline:auto}
+}
+@media(max-width:700px){
+  html[data-theme="panorama"][data-theme][lang] main .cta-band :is(h2,p){text-align:center}
+}
+
+/* ===== V74 – Panorama mobile : espace resserré entre la vidéo et « Qui sommes-nous ? » (104 px → 40 px) ===== */
+@media(max-width:700px){
+  html[data-theme="panorama"][data-theme][lang] .vid-home{padding-block:40px 20px}
+  html[data-theme="panorama"][data-theme][lang] .pb-s{padding-top:20px}
+}

@@ -1248,3 +1248,23 @@
     }
   }
 })();
+
+/* ===== V74 — Panorama : lightbox balayable au doigt (salons, cercueils) ===== */
+(function () {
+  'use strict';
+  var d = document;
+  if (d.documentElement.getAttribute('data-theme') !== 'panorama') return;
+  var lb = d.getElementById('lb'); if (!lb) return;
+  var x0 = null, y0 = 0;
+  lb.addEventListener('touchstart', function (e) {
+    if (e.touches.length !== 1) { x0 = null; return; }
+    x0 = e.touches[0].clientX; y0 = e.touches[0].clientY;
+  }, { passive: true });
+  lb.addEventListener('touchend', function (e) {
+    if (x0 === null) return;
+    var t = e.changedTouches[0], dx = t.clientX - x0, dy = t.clientY - y0; x0 = null;
+    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.2) {
+      var b = lb.querySelector(dx < 0 ? '.nx' : '.p'); if (b) b.click();
+    } else if (dy > 90 && dy > Math.abs(dx) * 1.5) { lb.close(); }
+  }, { passive: true });
+})();
